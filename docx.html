@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mohd Nafees - Resume</title>
+  <meta name="author" content="Mohd Nafees">
+  <meta name="description" content="Resume of Mohd Nafees, Senior Full Stack Engineer and AI/ML Engineer">
+  <meta name="keywords" content="Python, Django, FastAPI, Next.js, React, LLM, RAG, Agentic AI, Machine Learning, Celery, Redis, PostgreSQL, AWS, Docker">
+  <style>
+    /* ---------- Page ---------- */
+    /* The sidebar colour is painted by the page background so it fills every page,
+       not just the part covered by sidebar content. Keep 32% in sync with .sidebar width. */
+    @page {
+    size: A4;
+    margin: 10mm 0 10mm 0;
+    background: linear-gradient(to right, #eaf1f8 0%, #eaf1f8 32%, #c3d3e4 32%, #c3d3e4 32.12%, #ffffff 32.12%, #ffffff 100%);
+    @bottom-center {
+        content: "Mohd Nafees  \00B7  Page " counter(page) " of " counter(pages);
+        font-family: "Segoe UI", Calibri, Arial, sans-serif;
+        font-size: 7.5pt;
+        color: #94a3b8;
+        padding-left: 67mm;
+    }
+    }
+    @page :first {
+    margin-top: 0;
+    }
+
+    body {
+    font-family: "Segoe UI", Calibri, Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #1e293b;
+    line-height: 1.45;
+    font-size: 9pt;
+    }
+
+    a {
+    color: #0369a1;
+    text-decoration: none;
+    }
+
+    /* Two columns as a table, the layout WeasyPrint splits most reliably across pages */
+    .container {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+    display: table-cell;
+    box-sizing: border-box;
+    width: 32%;
+    padding: 12mm 6mm 6mm 8mm;
+    vertical-align: top;
+    color: #1e293b;
+    }
+    .sidebar h1 {
+    font-size: 23pt;
+    line-height: 1.1;
+    margin: 0 0 6px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #0f172a;
+    }
+    .role_title {
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: #0369a1;
+    margin: 0 0 4px;
+    line-height: 1.35;
+    }
+    .tagline {
+    font-size: 8.5pt;
+    color: #475569;
+    margin: 0 0 6px;
+    }
+    .sidebar h3 {
+    margin: 16px 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #c3d3e4;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #075985;
+    }
+    .sidebar strong {
+    display: block;
+    margin: 9px 0 4px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #9a3412;
+    }
+    .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+
+    .contacts li {
+    margin-bottom: 6px;
+    font-size: 8.5pt;
+    line-height: 1.3;
+    }
+    .contacts b {
+    display: block;
+    font-size: 6.8pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #475569;
+    }
+    .contacts a,
+    .contacts span {
+    color: #0f172a;
+    }
+
+    .chips li {
+    display: inline-block;
+    margin: 0 3px 4px 0;
+    padding: 1px 6px;
+    background: transparent;
+    border: 1px solid #8fa9c6;
+    border-radius: 3px;
+    font-size: 7.8pt;
+    color: #0f172a;
+    }
+
+    .edu li {
+    margin-bottom: 8px;
+    page-break-inside: avoid;
+    font-size: 8.3pt;
+    line-height: 1.35;
+    color: #334155;
+    }
+    .edu .degree {
+    display: block;
+    font-weight: 600;
+    color: #0f172a;
+    }
+    .edu .score {
+    display: block;
+    color: #9a3412;
+    font-weight: 600;
+    }
+
+    /* ---------- Main ---------- */
+    .main {
+    display: table-cell;
+    box-sizing: border-box;
+    width: 68%;
+    padding: 11mm 10mm 4mm 8mm;
+    vertical-align: top;
+    }
+    .main h2 {
+    margin: 13px 0 7px;
+    padding-bottom: 3px;
+    border-bottom: 1.5px solid #e2e8f0;
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #0f172a;
+    page-break-after: avoid;
+    }
+    .main h2:first-child {
+    margin-top: 0;
+    }
+    .main h2::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 7px;
+    background: #0284c7;
+    border-radius: 2px;
+    }
+
+    .summary p {
+    margin: 0 0 9px;
+    font-size: 9.3pt;
+    line-height: 1.55;
+    color: #334155;
+    }
+
+    /* Key numbers strip */
+    .stats {
+    display: flex;
+    margin: 0 0 2px;
+    }
+    .stat {
+    flex: 1;
+    margin-right: 6px;
+    padding: 6px 4px 5px;
+    background: #f0f9ff;
+    border-bottom: 2.5px solid #0284c7;
+    border-radius: 3px;
+    text-align: center;
+    }
+    .stat:last-child {
+    margin-right: 0;
+    }
+    .stat b {
+    display: block;
+    font-size: 15pt;
+    line-height: 1.1;
+    font-weight: 700;
+    color: #0369a1;
+    }
+    .stat span {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #475569;
+    }
+
+    .block {
+    margin-bottom: 10px;
+    page-break-inside: avoid;
+    }
+    .block h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0;
+    font-size: 10.2pt;
+    font-weight: 700;
+    color: #0f172a;
+    }
+    .block h3 .date {
+    flex-shrink: 0;
+    margin-left: 10px;
+    font-size: 8.3pt;
+    font-weight: 600;
+    color: #64748b;
+    }
+    .block .role {
+    display: block;
+    font-size: 9pt;
+    font-weight: 600;
+    color: #0369a1;
+    margin: 1px 0 2px;
+    }
+    .block ul {
+    list-style: none;
+    margin: 3px 0 0;
+    padding: 0;
+    }
+    .block li {
+    position: relative;
+    padding-left: 11px;
+    margin-bottom: 1px;
+    font-size: 8.9pt;
+    line-height: 1.45;
+    color: #334155;
+    }
+    .block li::before {
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: 0.62em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #0284c7;
+    }
+    .block li b {
+    color: #0f172a;
+    }
+
+    /* Project cards */
+    .project {
+    padding: 7px 10px 7px 11px;
+    margin-bottom: 7px;
+    background: #f8fafc;
+    border-left: 3px solid #0284c7;
+    border-radius: 3px;
+    }
+    .project h3 {
+    font-size: 10pt;
+    }
+    .project h3 a.date {
+    padding: 0 7px;
+    background: #e0f2fe;
+    border-radius: 8px;
+    font-size: 7.8pt;
+    color: #0369a1;
+    }
+    .project p {
+    margin: 3px 0 3px;
+    font-size: 8.9pt;
+    line-height: 1.45;
+    color: #334155;
+    }
+    .project .stack {
+    display: block;
+    font-size: 7.8pt;
+    font-weight: 600;
+    color: #0f766e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- <img src="Mohd Nafees Image2 (3).png" alt="Profile Picture"> -->
+      <h1>Mohd Nafees</h1>
+      <p class="role_title">Senior Full Stack & AI/ML Engineer</p>
+
+      <h3>Contacts</h3>
+      <ul class="contacts">
+        <li><b>Email</b> <a href="mailto:nafeesofficial17@gmail.com">nafeesofficial17@gmail.com</a></li>
+        <li><b>Phone</b> <a href="tel:+917490078839">+91 74900 78839</a></li>
+        <li><b>LinkedIn</b> <a href="https://www.linkedin.com/in/786-92-nafees">linkedin.com/in/786-92-nafees</a></li>
+        <li><b>GitHub</b> <a href="https://github.com/nafeesofficial17">github.com/nafeesofficial17</a></li>
+        <li><b>Website</b> <a href="https://mohd-nafees.netlify.app">mohd-nafees.netlify.app</a></li>
+        <li><b>Location</b> <span>Ahmedabad, Gujarat, India</span></li>
+      </ul>
+
+      <h3>Skills</h3>
+      <strong>Backend</strong>
+      <ul class="chips">
+        <li>Python</li><li>Django</li><li>DRF</li><li>FastAPI</li><li>Flask</li>
+        <li>REST APIs</li><li>WebSockets</li><li>Celery</li><li>Microservices</li>
+      </ul>
+
+      <strong>AI / ML</strong>
+      <ul class="chips">
+        <li>LLMs</li><li>RAG</li><li>Agentic AI</li><li>LangChain</li><li>LangGraph</li>
+        <li>OpenAI</li><li>Vector DBs / FAISS</li><li>NLP</li><li>scikit-learn</li>
+        <li>TensorFlow</li><li>Keras</li><li>Pandas</li><li>NumPy</li><li>OpenCV</li>
+      </ul>
+
+      <strong>Frontend</strong>
+      <ul class="chips">
+        <li>Next.js</li><li>React</li><li>TypeScript</li><li>JavaScript</li>
+      </ul>
+
+      <strong>Data &amp; Cloud</strong>
+      <ul class="chips">
+        <li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Redis</li><li>RabbitMQ</li>
+        <li>AWS (S3, RDS, Amplify)</li><li>Docker</li><li>Nginx</li><li>CI/CD</li>
+        <li>Git / GitHub / GitLab</li>
+      </ul>
+
+      <strong>Integrations</strong>
+      <ul class="chips">
+        <li>Stripe</li><li>Razorpay</li><li>PayPal</li><li>Twilio</li>
+        <li>ElevenLabs</li><li>Firebase</li>
+      </ul>
+
+      <h3>Education</h3>
+      <ul class="edu">
+        <li>
+          <span class="degree">Integrated Master of Computer Applications (IMCA)</span>
+          Indus University, Ahmedabad
+          <span class="score">2017 &ndash; 2022 &middot; CGPA: 8.2/10</span>
+        </li>
+      </ul>
+
+      <h3>Hobbies</h3>
+      <ul class="chips">
+        <li>Reading</li><li>Travelling</li><li>Cricket</li><li>Chess</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <h2>Profile</h2>
+      <div class="block summary">
+        <p>
+          Full-stack engineer with 4.8+ years of experience building production web and AI products with Python, Django,
+          FastAPI and Next.js. Experienced in LLM agents and RAG, machine learning, scalable APIs and cloud deployment,
+          and in owning delivery from design to client handover.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>4.8+</b><span>Years Experience</span></div>
+        <div class="stat"><b>4</b><span>Companies</span></div>
+        <div class="stat"><b>9+</b><span>Projects Delivered</span></div>
+        <div class="stat"><b>100+</b><span>Conversion Tools</span></div>
+      </div>
+
+      <h2>Experience</h2>
+      <div class="block">
+        <h3><span>Freelance / Self-Employed</span><span class="date">Jun 2026 &ndash; Present</span></h3>
+        <span class="role">Full-Stack &amp; AI/ML Engineer</span>
+        <ul>
+          <li>Launched ConvertNicely, an online file converter with 100+ tools (Next.js, FastAPI).</li>
+          <li>Building Gamer Stats, a legal-tech platform for verifying gaming playtime.</li>
+          <li>Own the full client cycle: requirements, architecture, development and deployment.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3><span>Primesource Consulting LLP</span><span class="date">Sep 2025 &ndash; May 2026</span></h3>
+        <span class="role">Software Engineer</span>
+        <ul>
+          <li>Built agentic AI systems: LLM workflows, RAG pipelines and AI voice bots with Twilio.</li>
+          <li>Delivered full-stack apps (Django, FastAPI, Next.js) with payments and e-signatures.</li>
+          <li>Managed databases, deployments and client communication end to end.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3><span>NeoSOFT Technologies Pvt. Ltd.</span><span class="date">Jul 2024 &ndash; Sep 2025</span></h3>
+        <span class="role">Software Engineer</span>
+        <ul>
+          <li>Built ML models for sales forecasting and real-time object detection.</li>
+          <li>Served models via Django, FastAPI and Flask APIs, with React dashboards.</li>
+          <li>Automated data pipelines for ingestion, feature engineering and model retraining.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3><span>Savitriya Technologies Pvt. Ltd.</span><span class="date">Sep 2023 &ndash; Jul 2024</span></h3>
+        <span class="role">Software Engineer</span>
+        <ul>
+          <li>Built FastAPI + React applications, API integrations and Python automation.</li>
+          <li>Managed cloud servers: deployment, monitoring, performance tuning and security.</li>
+          <li>Led the team: task planning, code reviews, mentoring and weekly client reports.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3><span>Hyperlink Infosystem Pvt. Ltd.</span><span class="date">Jan 2022 &ndash; Aug 2023</span></h3>
+        <span class="role">Software Engineer (Full Stack)</span>
+        <ul>
+          <li>Built scalable web apps and REST APIs with Django and Django REST Framework.</li>
+          <li>Handled database design, cloud deployment and server maintenance.</li>
+          <li>Worked with clients on requirements, technical guidance and progress updates.</li>
+        </ul>
+      </div>
+
+      <h2>Projects</h2>
+      <div class="block project">
+        <h3><span>Gamer Stats &ndash; Gaming Playtime Verification</span><a class="date" href="https://gamer-stats.com">gamer-stats.com</a></h3>
+        <p>
+          A legal-tech platform that helps law firms verify claimants' gaming history. It collects playtime from Xbox,
+          PlayStation, Steam, Epic, Fortnite and Roblox, shows who qualifies, and gives firms live search, reports,
+          activity logs and real-time notifications.
+        </p>
+        <span class="stack">Django &middot; DRF &middot; Celery &middot; Redis &middot; PostgreSQL &middot; Firebase &middot; Docker &middot; AWS</span>
+      </div>
+      <div class="block project">
+        <h3><span>ConvertNicely &ndash; Online File Converter</span><a class="date" href="https://convertnicely.com">convertnicely.com</a></h3>
+        <p>
+          A privacy-focused online file converter with <b>100+ tools</b> for images, PDFs, documents, audio, video and
+          web pages. No sign-up is needed, and uploaded files are deleted automatically after conversion.
+        </p>
+        <span class="stack">Next.js &middot; TypeScript &middot; FastAPI &middot; Celery &middot; Redis &middot; PostgreSQL &middot; FFmpeg &middot; LibreOffice &middot; Docker</span>
+      </div>
+      <div class="block project">
+        <h3><span>CallFlow Agent &ndash; AI Voice &amp; Chat Assistant</span></h3>
+        <p>
+          An AI assistant platform for law firms. It answers client questions from the firm's own knowledge base through
+          a website chat widget, places phone calls with a natural human-like voice, runs bulk calling campaigns, and
+          records every call with transcripts and analytics.
+        </p>
+        <span class="stack">Django &middot; FastAPI &middot; Next.js &middot; OpenAI &middot; RAG &middot; Twilio &middot; ElevenLabs &middot; FAISS &middot; Docker</span>
+      </div>
+      <div class="block project">
+        <h3><span>anyEsign &ndash; Digital Signing &amp; Payments</span><a class="date" href="https://anyesign.com">anyesign.com</a></h3>
+        <p>
+          A document signing platform where users upload, sign and track documents with legally compliant e-signatures,
+          verification and full audit trails, and collect payments linked to signed documents.
+        </p>
+        <span class="stack">Django &middot; FastAPI &middot; Next.js &middot; Stripe &middot; PostgreSQL &middot; S3 &middot; Docker</span>
+      </div>
+      <div class="block project">
+        <h3><span>PureStora &ndash; E-commerce Store</span><a class="date" href="https://purestora.com">purestora.com</a></h3>
+        <p>
+          An online store with product catalogue, cart, coupons and secure Razorpay checkout, plus an admin panel for
+          orders, inventory, invoices, newsletters and site content.
+        </p>
+        <span class="stack">Django &middot; MySQL &middot; Celery &middot; Redis &middot; Razorpay</span>
+      </div>
+      <div class="block">
+        <h3><span>More Projects</span></h3>
+        <ul>
+          <li><b>AndLeap:</b> a mentorship and community platform where mentees book paid one-on-one video sessions with mentors across time zones.</li>
+          <li><b>VPOS:</b> a virtual point-of-sale system for in-store cash and card payments, with downloadable invoices.</li>
+          <li><b>Demand Forecasting:</b> a machine-learning model that predicts product sales to help plan inventory.</li>
+          <li><b>Object Detection &amp; Counting:</b> a computer-vision tool that detects and counts objects in images, with an analysis dashboard.</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

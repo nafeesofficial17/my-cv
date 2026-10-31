@@ -1,0 +1,7 @@
+beautifulsoup4==4.14.3
+pdfkit==1.0.0
+python-docx==1.2.0
+weasyprint==66.0
+
+
+

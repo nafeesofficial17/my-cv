@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mohd Nafees - Resume</title>
+  <style>
+    
+    body {
+      /* font-family: "Segoe UI", Tahoma, sans-serif; */
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f6fa;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+    .container {
+      display: flex;
+      width: 1000px;
+      margin: 30px auto;
+      background: #fff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 30%;
+      background: #1e2a38;
+      color: #ecf0f1;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .sidebar img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 0px;
+      border: 3px solid #ecf0f1;
+    }
+    .sidebar h1 {
+      font-size: 25px;       /* bigger title */
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: 0.5px; /* subtle spacing */
+    }
+    .sidebar p {
+      font-size: 13px;
+      color: #bdc3c7;
+      margin-bottom: 20px;
+    }
+    .role_title{
+      font-size: 15px !important;
+      margin-top: 5px;
+    }
+    .sidebar h3 {
+      margin-top: 20px;      /* tighter */
+      padding-bottom: 6px;
+      border-bottom: 2px solid #3498db;
+      font-size: 16px;       /* slightly bigger */
+      text-align: left;
+      font-weight: 600;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding-left: 15px; /* indent for readability */
+      font-size: 13px;
+      text-align: left;
+      margin: 8px 0 15px;
+    }
+    .sidebar ul li {
+      margin-bottom: 6px;
+    }
+    .sidebar strong {
+      display: block;
+      margin: 14px 0 8px 5px;  /* cleaner spacing */
+      font-size: 14px;
+      font-weight: 600;
+      color: #f1c40f;
+      text-align: left;
+    }
+
+    /* Main Content */
+    .main {
+      width: 70%;
+      padding: 40px;         /* more breathing room */
+    }
+    .main h2 {
+      border-bottom: 2px solid #3498db;
+      color: #2c3e50;
+      padding-bottom: 5px;
+      margin-top: 25px;
+      margin-bottom: 18px;   /* more space below */
+      font-size: 21px;       /* bigger for section titles */
+      font-weight: 700;
+    }
+    .block {
+      margin-bottom: 15px;   /* consistent spacing */
+    }
+    .block h3 {
+      margin: 0 0 2px 0;     /* small gap before span */
+      font-size: 15px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    .block span {
+      font-size: 13px;
+      color: #7f8c8d;
+      margin-bottom: 3px;
+    }
+    .block strong {
+      display: inline;
+      margin-top: 2px;
+      color: #16a085;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .education strong {
+      display: block;
+    }
+
+    .block p {
+      margin: 4px 0;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.5;      /* better readability */
+    }
+    .highlight {
+      background: #ecf9ff;
+      padding: 9px;
+      border-left: 4px solid #3498db;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    /* Links */
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Print-friendly */
+    @media print {
+      body { background: white; }
+      .container { box-shadow: none; width: 100%; margin: 0; }
+      .sidebar { background: #eee; color: #000; }
+      .sidebar h3 { border-color: #000; }
+      .main h2 { border-color: #000; }
+    }
+
+    /* Print/PDF Friendly */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 12px;
+      }
+      .container {
+        box-shadow: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+      }
+      .sidebar {
+        background: #2c3e50 !important;   /* dark sidebar for PDF */
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact; 
+        print-color-adjust: exact;
+      }
+      .sidebar h3 {
+        border-bottom: 2px solid #ffffff !important;
+        color: #f1c40f !important;
+      }
+      .main h2 {
+        border-bottom: 2px solid #2c3e50 !important;
+        color: #2c3e50 !important;
+      }
+      .highlight {
+        background: #dff6ff !important;
+        border-left: 4px solid #3498db !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      a {
+        color: #2980b9 !important;
+        text-decoration: none;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <img src="Mohd Nafees Image2 (3).png" alt="Profile Picture">
+      <h1>Mohd Nafees</h1>
+      <p class="role_title">AI/ML Engineer | Sr. Software Engineer</p>
+
+      <h3>Contact</h3>
+      <ul>
+        <li>Email: youremail@example.com</li>
+        <li>Phone: +91-XXXXXXXXXX</li>
+        <li>Location: Ahmedabad, Gujarat</li>
+        <li>LinkedIn: linkedin.com/in/yourprofile</li>
+        <li>GitHub: github.com/yourprofile</li>
+      </ul>
+
+      <h3>Skills</h3>
+      <strong>Web Development</strong>
+      <ul>
+        <li>Python (4 yrs, Expert)</li>
+        <li>Django, DRF, FastAPI, Flask</li>
+        <li>React.js, HTML, CSS, JS</li>
+        <li>REST APIs, Microservices</li>
+      </ul>
+
+      <strong>Data Science</strong>
+      <ul>
+        <li>Pandas, NumPy, Scikit-learn</li>
+        <li>ML/DL, LLM, NLP, GenAI</li>
+        <li>TensorFlow, PyTorch</li>
+        <li>ARIMA, SARIMA, Time Series</li>
+      </ul>
+
+      <strong>Tools & Platforms</strong>
+      <ul>
+        <li>AWS, S3, Redis, Celery</li>
+        <li>Docker, Git, GitLab</li>
+        <li>MySQL, PostgreSQL, MongoDB</li>
+        <li>Nginx, RabbitMQ, Stripe, Razorpay</li>
+      </ul>
+
+      <h3>Hobbies</h3>
+      <ul>
+        <li>Cricket</li>
+        <li>Chess</li>
+        <li>Travelling</li>
+        <li>Reading</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <h2>Professional Highlights</h2>
+      <div class="highlight">Expert in Django, DRF, FastAPI, Flask & React.js for scalable applications</div>
+      <div class="highlight">Strong in Pandas, NumPy, Matplotlib, Seaborn, Plotly for data analysis</div>
+      <div class="highlight">Skilled in ML/DL, NLP, LLM fine-tuning, and Generative AI</div>
+
+      <h2>Education</h2>
+      <div class="block education">
+        <h3>Master of Computer Applications (MCA)</h3>
+        <span>Indus University, Ahmedabad (2017 - 2022)</span>
+        <strong>CGPA: 8.2/10</strong>
+      </div>
+      <div class="block education">
+        <h3>Senior Secondary (12th)</h3>
+        <span>XYZ Intermediate College (2016)</span>
+        <strong>Percentage: 72%</strong>
+      </div>
+      <div class="block education">
+        <h3>Secondary (10th)</h3>
+        <span>XYZ High School (2014)</span>
+        <strong>Percentage: 80%</strong>
+      </div>
+
+      <h2>Experience</h2>
+      <div class="block">
+        <h3>NeoSOFT Technologies</h3>
+        <span>AI/ML Engineer — Jul 2024 - Present</span>
+        <p>Designing AI-driven enterprise solutions with LLMs, NLP, and Generative AI models. Deploying scalable ML pipelines and integrating them into client applications.</p>
+      </div>
+      <div class="block">
+        <h3>Savitriya Technologies</h3>
+        <span>Software Engineer — Sep 2023 - Jul 2024</span>
+        <p>Developed REST APIs, integrated ML models in production, optimized SQL queries, and implemented microservices with FastAPI and Docker.</p>
+      </div>
+      <div class="block">
+        <h3>Hyperlink Infosystem</h3>
+        <span>Python Web Developer — Jan 2022 - Aug 2023</span>
+        <p>Built enterprise applications using Django & FastAPI, integrated third-party payment gateways, and deployed cloud-based solutions on AWS.</p>
+      </div>
+
+      <h2>Projects</h2>
+      <div class="block">
+        <h3>AndLeap</h3>
+        <span>Duration: 10 months</span>
+        <p><strong>Description:</strong> Knowledge-sharing platform for mentorship and community engagement.</p>
+        <p><strong>Skills:</strong> Django, MySQL, Python, Stripe, React, S3</p>
+        <p><strong>Link:</strong> <a href="https://andleap.com/" target="_blank">andleap.com</a></p>
+      </div>
+      <div class="block">
+        <h3>PureStora</h3>
+        <span>Duration: 11 months</span>
+        <p><strong>Description:</strong> E-commerce platform with Razorpay, cart, coupons, PDF invoices, and admin panels.</p>
+        <p><strong>Skills:</strong> Django, Redis, Celery, MySQL, Python</p>
+        <p><strong>Link:</strong> <a href="https://purestora.com/" target="_blank">purestora.com</a></p>
+      </div>
+      <div class="block">
+        <h3>VPOS</h3>
+        <span>Duration: 10 months</span>
+        <p><strong>Description:</strong> POS system with async API handling, sockets, Linkly payment integration.</p>
+        <p><strong>Skills:</strong> FastAPI, React, PyTest, REST API, Nginx</p>
+      </div>
+      <div class="block">
+        <h3>Demand Forecasting</h3>
+        <span>Duration: 5 months</span>
+        <p><strong>Description:</strong> Time series forecasting using ARIMA, SARIMA, LSTM for sales prediction.</p>
+        <p><strong>Skills:</strong> Python, ML, Deep Learning, Pandas, NumPy</p>
+      </div>
+      <div class="block">
+        <h3>Customer Churn Prediction</h3>
+        <span>Duration: 4 months</span>
+        <p><strong>Description:</strong> Deep learning model to predict churn with TensorFlow and Keras.</p>
+        <p><strong>Skills:</strong> Python, Deep Learning, Pandas, NumPy</p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
