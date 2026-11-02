@@ -3,195 +3,305 @@
 <head>
   <meta charset="UTF-8">
   <title>Mohd Nafees - Resume</title>
+  <meta name="author" content="Mohd Nafees">
+  <meta name="description" content="Resume of Mohd Nafees, Senior Full Stack Engineer and AI/ML Engineer">
+  <meta name="keywords" content="Python, Django, FastAPI, Next.js, React, LLM, RAG, Agentic AI, Machine Learning, Celery, Redis, PostgreSQL, AWS, Docker">
   <style>
-    body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f6fa;
-    color: #2c3e50;
-    line-height: 1.6;
-    }
-
-    /* Page margin for PDF */
+    /* ---------- Page ---------- */
+    /* The sidebar colour is painted by the page background so it fills every page,
+       not just the part covered by sidebar content. Keep 32% in sync with .sidebar width. */
     @page {
     size: A4;
-    margin: 0mm 0mm 0mm 0mm; /* top, right, bottom, left */
+    margin: 10mm 0 10mm 0;
+    background: linear-gradient(to right, #17212e 0%, #17212e 32%, #ffffff 32%, #ffffff 100%);
+    @bottom-center {
+        content: "Mohd Nafees  \00B7  Page " counter(page) " of " counter(pages);
+        font-family: "Segoe UI", Calibri, Arial, sans-serif;
+        font-size: 7.5pt;
+        color: #94a3b8;
+        padding-left: 67mm;
+    }
+    }
+    @page :first {
+    margin-top: 0;
     }
 
-    /* Container as table for WeasyPrint compatibility */
+    body {
+    font-family: "Segoe UI", Calibri, Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #1e293b;
+    line-height: 1.45;
+    font-size: 9pt;
+    }
+
+    a {
+    color: #0369a1;
+    text-decoration: none;
+    }
+
+    /* Two columns as a table, the layout WeasyPrint splits most reliably across pages */
     .container {
     display: table;
     width: 100%;
-    background: #fff;
+    table-layout: fixed;
     border-collapse: collapse;
-    box-shadow: 0 0 15px rgba(0,0,0,0.15);
     }
 
-    /* Sidebar as left cell */
+    /* ---------- Sidebar ---------- */
     .sidebar {
     display: table-cell;
-    width: 33%;
-    background: #1e2a38;
-    color: #ecf0f1;
-    padding: 25px 18px; /* more breathing space */
-    text-align: center;
+    box-sizing: border-box;
+    width: 32%;
+    padding: 12mm 6mm 6mm 8mm;
     vertical-align: top;
-    }
-    .sidebar img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-bottom: 0px;
-    border: 3px solid #ecf0f1;
+    color: #e2e8f0;
     }
     .sidebar h1 {
-    font-size: 25px;
-    margin-bottom: 8px;
+    font-size: 23pt;
+    line-height: 1.1;
+    margin: 0 0 6px;
     font-weight: 700;
-    letter-spacing: 0.5px;
-    }
-    .sidebar p {
-    font-size: 13px;
-    color: #bdc3c7;
-    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+    color: #ffffff;
     }
     .role_title {
-    font-size: 15px !important;
-    margin-top: 5px;
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: #7dd3fc;
+    margin: 0 0 4px;
+    line-height: 1.35;
+    }
+    .tagline {
+    font-size: 8.5pt;
+    color: #94a3b8;
+    margin: 0 0 6px;
     }
     .sidebar h3 {
-    margin-top: 20px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid #3498db;
-    font-size: 16px;
-    text-align: left;
-    font-weight: 600;
-    }
-    .sidebar ul {
-    list-style: none;
-    padding-left: 15px;
-    font-size: 13px;
-    text-align: left;
-    margin: 8px 0 15px;
-    }
-    .sidebar ul li {
-    margin-bottom: 6px;
+    margin: 13px 0 7px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #334155;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #7dd3fc;
     }
     .sidebar strong {
     display: block;
-    margin: 14px 0 8px 5px;
-    font-size: 14px;
+    margin: 7px 0 4px;
+    font-size: 8.5pt;
     font-weight: 600;
-    color: #f1c40f;
-    text-align: left;
+    color: #fbbf24;
+    }
+    .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     }
 
-    /* Main Content as right cell */
+    .contacts li {
+    margin-bottom: 5px;
+    font-size: 8.5pt;
+    line-height: 1.3;
+    }
+    .contacts b {
+    display: block;
+    font-size: 6.8pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    }
+    .contacts a,
+    .contacts span {
+    color: #f1f5f9;
+    }
+
+    .chips li {
+    display: inline-block;
+    margin: 0 3px 4px 0;
+    padding: 1px 6px;
+    background: #243245;
+    border: 1px solid #334155;
+    border-radius: 3px;
+    font-size: 7.8pt;
+    color: #e2e8f0;
+    }
+
+    .edu li {
+    margin-bottom: 8px;
+    page-break-inside: avoid;
+    font-size: 8.3pt;
+    line-height: 1.35;
+    color: #cbd5e1;
+    }
+    .edu .degree {
+    display: block;
+    font-weight: 600;
+    color: #ffffff;
+    }
+    .edu .score {
+    display: block;
+    color: #fbbf24;
+    font-weight: 600;
+    }
+
+    /* ---------- Main ---------- */
     .main {
     display: table-cell;
-    width: 67%;
-    padding: 10px 30px; /* better padding */
+    box-sizing: border-box;
+    width: 68%;
+    padding: 11mm 10mm 4mm 8mm;
     vertical-align: top;
     }
     .main h2 {
-    border-bottom: 2px solid #3498db;
-    color: #2c3e50;
-    padding-bottom: 5px;
-    margin-top: 25px;
-    margin-bottom: 18px;
-    font-size: 21px;
+    margin: 13px 0 7px;
+    padding-bottom: 3px;
+    border-bottom: 1.5px solid #e2e8f0;
+    font-size: 11pt;
     font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #0f172a;
+    page-break-after: avoid;
     }
+    .main h2:first-child {
+    margin-top: 0;
+    }
+    .main h2::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 7px;
+    background: #0284c7;
+    border-radius: 2px;
+    }
+
+    .summary p {
+    margin: 0 0 9px;
+    font-size: 9.3pt;
+    line-height: 1.55;
+    color: #334155;
+    }
+
+    /* Key numbers strip */
+    .stats {
+    display: flex;
+    margin: 0 0 2px;
+    }
+    .stat {
+    flex: 1;
+    margin-right: 6px;
+    padding: 6px 4px 5px;
+    background: #f0f9ff;
+    border-bottom: 2.5px solid #0284c7;
+    border-radius: 3px;
+    text-align: center;
+    }
+    .stat:last-child {
+    margin-right: 0;
+    }
+    .stat b {
+    display: block;
+    font-size: 15pt;
+    line-height: 1.1;
+    font-weight: 700;
+    color: #0369a1;
+    }
+    .stat span {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #475569;
+    }
+
     .block {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    page-break-inside: avoid;
     }
     .block h3 {
-    margin: 0 0 2px 0;
-    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0;
+    font-size: 10.2pt;
+    font-weight: 700;
+    color: #0f172a;
+    }
+    .block h3 .date {
+    flex-shrink: 0;
+    margin-left: 10px;
+    font-size: 8.3pt;
     font-weight: 600;
-    color: #2c3e50;
+    color: #64748b;
     }
-    .block span {
-    font-size: 13px;
-    color: #5e6e6f;
-    margin-bottom: 3px;
+    .block .role {
     display: block;
-    }
-    .block strong {
-    display: inline;
-    margin-top: 2px;
-    color: #16a085;
-    font-size: 13px;
+    font-size: 9pt;
     font-weight: 600;
+    color: #0369a1;
+    margin: 1px 0 2px;
     }
-    .education strong {
+    .block ul {
+    list-style: none;
+    margin: 3px 0 0;
+    padding: 0;
+    }
+    .block li {
+    position: relative;
+    padding-left: 11px;
+    margin-bottom: 1px;
+    font-size: 8.9pt;
+    line-height: 1.45;
+    color: #334155;
+    }
+    .block li::before {
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: 0.62em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #0284c7;
+    }
+    .block li b {
+    color: #0f172a;
+    }
+
+    /* Project cards */
+    .project {
+    padding: 7px 10px 7px 11px;
+    margin-bottom: 7px;
+    background: #f8fafc;
+    border-left: 3px solid #0284c7;
+    border-radius: 3px;
+    }
+    .project h3 {
+    font-size: 10pt;
+    }
+    .project h3 a.date {
+    padding: 0 7px;
+    background: #e0f2fe;
+    border-radius: 8px;
+    font-size: 7.8pt;
+    color: #0369a1;
+    }
+    .project p {
+    margin: 3px 0 3px;
+    font-size: 8.9pt;
+    line-height: 1.45;
+    color: #334155;
+    }
+    .project .stack {
     display: block;
+    font-size: 7.8pt;
+    font-weight: 600;
+    color: #0f766e;
     }
-    .block p {
-    margin: 4px 0;
-    font-size: 13px;
-    color: #555;
-    line-height: 1.5;
-    }
-    
-    .highlight {
-    background: #ecf9ff;
-    padding: 9px;
-    border-left: 4px solid #3498db;
-    margin-bottom: 8px;
-    font-size: 13px;
-    }
-
-    /* Links */
-    a {
-    color: #2980b9;
-    /* color: #ecf0f1; */
-    text-decoration: none;
-    }
-    a:hover {
-    text-decoration: underline;
-    }
-
-    /* Print/PDF Friendly */
-    @media print {
-    body {
-        background: #ffffff !important;
-        color: #000000 !important;
-        font-size: 12px;
-    }
-    .container {
-        box-shadow: none !important;
-        width: 100% !important;
-        margin: 0 !important;
-    }
-    .sidebar {
-        background: #2c3e50 !important;
-        color: #ffffff !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-    .sidebar h3 {
-        border-bottom: 2px solid #ffffff !important;
-        color: #f1c40f !important;
-    }
-    .main h2 {
-        border-bottom: 2px solid #2c3e50 !important;
-        color: #2c3e50 !important;
-    }
-    .highlight {
-        background: #dff6ff !important;
-        border-left: 4px solid #3498db !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-    a {
-        color: #2980b9 !important;
-        text-decoration: none;
-    }
-    
-    }
-
   </style>
 </head>
 <body>
@@ -200,301 +310,182 @@
     <aside class="sidebar">
       <!-- <img src="Mohd Nafees Image2 (3).png" alt="Profile Picture"> -->
       <h1>Mohd Nafees</h1>
-      <p class="role_title">AI/ML Engineer | Senior Software Engineer</p>
+      <p class="role_title">Senior Full Stack & AI/ML Engineer</p>
 
-      <!-- <h3>Contacts</h3>
-      <ul>
-        <li><b>Email:</b> <a href="mailto:nafeesofficial17@gmail.com" target="_blank">nafeesofficial17@gmail.com</a></li>
-        <li><b>Phone:</b> <a href="tel:+917490078839" target="_blank">+91 7490078839</a></li>
-        <li><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/786-92-nafees" target="_blank">linkedin.com/in/786-92-nafees</a></li>
-        <li><b>GitHub:</b> <a href="https://github.com/nafeesofficial17" target="_blank">github.com/nafeesofficial17</a></li>
-        <li><b>Website:</b> <a href="https://mohd-nafees.netlify.app" target="_blank">mohd-nafees.netlify.app</a></li>
-        <li><b>Location:</b> Ahmedabad, Gujarat, India</li>
-      </ul>  -->
+      <!-- Contacts hidden for client submissions
+      <h3>Contacts</h3>
+      <ul class="contacts">
+        <li><b>Email</b> <a href="mailto:nafeesofficial17@gmail.com">nafeesofficial17@gmail.com</a></li>
+        <li><b>Phone</b> <a href="tel:+917490078839">+91 74900 78839</a></li>
+        <li><b>LinkedIn</b> <a href="https://www.linkedin.com/in/786-92-nafees">linkedin.com/in/786-92-nafees</a></li>
+        <li><b>GitHub</b> <a href="https://github.com/nafeesofficial17">github.com/nafeesofficial17</a></li>
+        <li><b>Website</b> <a href="https://mohd-nafees.netlify.app">mohd-nafees.netlify.app</a></li>
+        <li><b>Location</b> <span>Ahmedabad, Gujarat, India</span></li>
+      </ul>
+      -->
 
       <h3>Skills</h3>
-      <strong>Web Development</strong>
-      <ul>
-        <li>Python, Django, DRF</li>
-        <li>FastAPI, Flask, React, Next.js</li>
-        <li>HTML, CSS, JavaScript, AJAX</li>
-        <li>REST APIs, Microservices</li>
+      <strong>Backend</strong>
+      <ul class="chips">
+        <li>Python</li><li>Django</li><li>DRF</li><li>FastAPI</li><li>Flask</li>
+        <li>REST APIs</li><li>WebSockets</li><li>Celery</li><li>Microservices</li>
       </ul>
 
       <strong>Data Science</strong>
-      <ul>
-        <li>Pandas, NumPy, ML/DL</li>
-        <li>scikit-learn, TensorFlow, Keras</li>
-        <li>LLM, NLP, Generative AI, Agentic AI</li>
-        <li>LangChain, LangGraph, VectorDB</li>
+      <ul class="chips">
+        <li>LLMs</li><li>Agentic AI</li><li>LangChain</li><li>LangGraph</li>
+        <li>OpenAI</li><li>Vector DBs / FAISS</li><li>NLP</li><li>scikit-learn</li>
+        <li>TensorFlow</li><li>Keras</li><li>Pandas</li><li>NumPy</li><li>OpenCV</li>
       </ul>
 
-      <strong>Tools & Platforms</strong>
-      <ul>
-        <li>AWS, S3, RDS, Amplify</li>
-        <li>Celery, Redis, RabbitMQ</li>
-        <li>Git, GitLab, GitHub, Docker</li>
-        <li>MySQL, PostgreSQL, MongoDB</li>
-        <li>Nginx, Stripe, Razorpay</li>
-        <li>PayPal, Linkly</li>
+      <strong>Frontend</strong>
+      <ul class="chips">
+        <li>Next.js</li><li>React</li><li>TypeScript</li><li>JavaScript</li>
+      </ul>
+
+      <strong>Data &amp; Cloud</strong>
+      <ul class="chips">
+        <li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Redis</li><li>RabbitMQ</li>
+        <li>AWS (S3, RDS, Amplify)</li><li>Docker</li><li>Nginx</li><li>CI/CD</li>
+        <li>Git / GitHub / GitLab</li>
+      </ul>
+
+      <strong>Integrations</strong>
+      <ul class="chips">
+        <li>Stripe</li><li>Razorpay</li><li>PayPal</li><li>Twilio</li>
+        <li>ElevenLabs</li><li>Firebase</li>
+      </ul>
+
+      <h3>Education</h3>
+      <ul class="edu">
+        <li>
+          <span class="degree">Integrated Master of Computer Applications (IMCA)</span>
+          Indus University, Ahmedabad
+          <span class="score">2017 &ndash; 2022 &middot; CGPA: 8.2/10</span>
+        </li>
       </ul>
 
       <h3>Hobbies</h3>
-      <ul>
-        <li>Reading</li>
-        <li>Travelling</li>
-        <!-- <li>Sports</li> -->
-        <li>Cricket</li>
-        <li>Chess</li>
+      <ul class="chips">
+        <li>Reading</li><li>Travelling</li><li>Cricket</li><li>Chess</li>
       </ul>
     </aside>
 
     <!-- Main Content -->
     <main class="main">
-      <h2>Professional Highlights</h2>
-      <div class="highlight">
-        <b>Web Frameworks & API Integration:</b> Expert in Django, DRF, Flask,
-        FastAPI, and React for building scalable web applications and APIs,
-        with expertise in designing and integrating RESTful APIs and third-party services.
+      <h2>Profile</h2>
+      <div class="block summary">
+        <p>
+          Full-stack engineer with 4.8+ years of experience building production web and AI products with Python, Django,
+          FastAPI and Next.js. Experienced in LLM agents and RAG, machine learning, scalable APIs and cloud deployment,
+          and in owning delivery from design to client handover.
+        </p>
       </div>
-      <div class="highlight">
-        <b>Data Manipulation & Visualization:</b> Skilled in leveraging Pandas and
-        NumPy for data processing and analysis, along with Matplotlib,
-        Seaborn, and Plotly for insightful visualizations.
-      </div>
-      <div class="highlight">
-        <b>AI/ML Engineer — ML/DL, LLM & Generative AI Specialist:</b>
-        Skilled in building and deploying models using scikit-learn, TensorFlow, and Keras. Experienced in NLP, LLM fine-tuning, and Generative AI. Strong in feature engineering, hyperparameter tuning, and model evaluation.
-      </div>
-
-      <h2>Education</h2>
-      <div class="block education">
-        <h3>Integrated Master of Computer Applications (IMCA)</h3>
-        <span>Indus University, Ahmedabad (2017 - 2022)</span>
-        <strong>CGPA: 8.2/10</strong>
-      </div>
-      <div class="block education">
-        <h3>Senior Secondary (12th)</h3>
-        <span>R.U.Inter College (U.P.) (2016)</span>
-        <strong>Percentage: 68.2%</strong>
-      </div>
-      <div class="block education">
-        <h3>Secondary (10th)</h3>
-        <span>S.A.K.J. Intermediate College (U.P.) (2014)</span>
-        <strong>Percentage: 80.5%</strong>
+      <div class="stats">
+        <div class="stat"><b>4.8+</b><span>Years Experience</span></div>
+        <div class="stat"><b>4</b><span>Companies</span></div>
+        <div class="stat"><b>9+</b><span>Projects Delivered</span></div>
+        <div class="stat"><b>100+</b><span>Conversion Tools</span></div>
       </div>
 
       <h2>Experience</h2>
       <div class="block">
-        <h3>Primesource Consulting LLP</h3>
-        <span>Software Engineer — Sep 2025 - May 2026</span>
-        <p>
-          Developed scalable full-stack applications using Python (Django, FastAPI) and Next.js, including RESTful APIs, 
-          payment integration (Stripe), and digital signature workflows. Managed databases, deployments, and collaborated 
-          with clients to deliver secure, high-performance solutions.
-        </p>
-        <p>
-          Built AI-driven systems using Agentic AI, including LLM-based workflows, RAG pipelines, and autonomous agents. Developed AI-powered voice bots and calling workflows with Twilio for real-time interactions and automated processes.
-        </p>
+        <h3><span>Freelance / Self-Employed</span><span class="date">Jun 2026 &ndash; Present</span></h3>
+        <span class="role">Full-Stack &amp; AI/ML Engineer</span>
+        <ul>
+          <li>Launched ConvertNicely, an online file converter with 100+ tools (Next.js, FastAPI).</li>
+          <li>Building Gamer Stats, a legal-tech platform for verifying gaming playtime.</li>
+          <li>Own the full client cycle: requirements, architecture, development and deployment.</li>
+        </ul>
       </div>
       <div class="block">
-        <h3>NeoSOFT Technologies Private Limited</h3>
-        <span>Software Engineer — Jul 2024 - Sep 2025</span>
-        <p>
-            Engineered end-to-end AI/ML web applications by designing and training models for sales forecasting and real-time object detection using Python (Pandas, NumPy, scikit-learn, TensorFlow, Keras). Exposed inference endpoints via Django/FastAPI/Flask and built React dashboards for interactive data visualization. Automated data ingestion, preprocessing, feature engineering, and model-retraining pipelines to maintain accuracy and scalability.
-        </p>
+        <h3><span>Primesource Consulting LLP</span><span class="date">Sep 2025 &ndash; May 2026</span></h3>
+        <span class="role">Software Engineer</span>
+        <ul>
+          <li>Built agentic AI systems: LLM workflows, RAG pipelines and AI voice bots with Twilio.</li>
+          <li>Delivered full-stack apps (Django, FastAPI, Next.js) with payments and e-signatures.</li>
+          <li>Managed databases, deployments and client communication end to end.</li>
+        </ul>
       </div>
       <div class="block">
-        <h3>Savitriya Technologies Private Limited</h3>
-        <span>Software Engineer — Sep 2023 - Jul 2024</span>
-        <p>
-            Developed high-performance FastAPI + React applications, integrating RESTful APIs and automating workflows with Python scripts. Managed cloud servers end-to-end — provisioning, deployment, monitoring, performance tuning, and security hardening. Managed a cross-functional team: planned tasks, conducted code reviews, and mentored engineers. Delivered weekly stakeholder reports and liaised with clients to define requirements, provide guidance, and ensure on-time delivery.
-        </p>
+        <h3><span>NeoSOFT Technologies Pvt. Ltd.</span><span class="date">Jul 2024 &ndash; Sep 2025</span></h3>
+        <span class="role">Software Engineer</span>
+        <ul>
+          <li>Built ML models for sales forecasting and real-time object detection.</li>
+          <li>Served models via Django, FastAPI and Flask APIs, with React dashboards.</li>
+          <li>Automated data pipelines for ingestion, feature engineering and model retraining.</li>
+        </ul>
       </div>
       <div class="block">
-        <h3>Hyperlink Infosystem Private Limited</h3>
-        <span>Software Engineer — Jan 2022 - Aug 2023</span>
-        <p>
-            Worked as a Full Stack Developer using Django and Django REST Framework to build scalable web 
-            applications. Developed and integrated RESTful APIs for frontend-backend 
-            communication. Handled server-side logic, database design, and deployment on cloud servers 
-            with ongoing server management to ensure high performance and security. 
-            Liaised regularly with clients to gather requirements, provide technical 
-            guidance, deliver progress updates, and ensure final solutions met business 
-            objectives.
-        </p>
+        <h3><span>Savitriya Technologies Pvt. Ltd.</span><span class="date">Sep 2023 &ndash; Jul 2024</span></h3>
+        <span class="role">Software Engineer</span>
+        <ul>
+          <li>Built FastAPI + React applications, API integrations and Python automation.</li>
+          <li>Managed cloud servers: deployment, monitoring, performance tuning and security.</li>
+          <li>Led the team: task planning, code reviews, mentoring and weekly client reports.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3><span>Hyperlink Infosystem Pvt. Ltd.</span><span class="date">Jan 2022 &ndash; Aug 2023</span></h3>
+        <span class="role">Software Engineer (Full Stack)</span>
+        <ul>
+          <li>Built scalable web apps and REST APIs with Django and Django REST Framework.</li>
+          <li>Handled database design, cloud deployment and server maintenance.</li>
+          <li>Worked with clients on requirements, technical guidance and progress updates.</li>
+        </ul>
       </div>
 
       <h2>Projects</h2>
-      <div class="block">
-        <h3>CallFlow Agent - AI Voice & Chat Automation Platform</h3>
+      <div class="block project">
+        <h3><span>Gamer Stats &ndash; Gaming Playtime Verification</span><a class="date" href="https://gamer-stats.com">gamer-stats.com</a></h3>
         <p>
-          <strong>Description:</strong>
-          Built a multi-tenant AI voice and chat automation platform for law firms that combines RAG-powered knowledge-base chat,
-          Twilio-based voice calling, and ElevenLabs-powered voice synthesis for natural, human-like conversations. Developed a hybrid
-          Django + FastAPI backend with REST APIs and WebSockets for real-time AI interactions, FAISS vector search over structured
-          knowledge sources and document content, transcript and call-record management, and CSV-driven bulk calling with retry
-          tracking and reporting. Delivered a Next.js dashboard for user onboarding, bot and template management, embeddable chat
-          widgets, and call analytics, then containerized the platform with Docker and Nginx for deployment.
+          A legal-tech platform that helps law firms verify claimants' gaming history. It collects playtime from Xbox,
+          PlayStation, Steam, Epic, Fortnite and Roblox, shows who qualifies, and gives firms live search, reports,
+          activity logs and real-time notifications.
         </p>
+        <span class="stack">Django &middot; DRF &middot; Celery &middot; Redis &middot; PostgreSQL &middot; Firebase &middot; Docker &middot; AWS</span>
+      </div>
+      <div class="block project">
+        <h3><span>ConvertNicely &ndash; Online File Converter</span><a class="date" href="https://convertnicely.com">convertnicely.com</a></h3>
         <p>
-          <strong>Skills:</strong>
-          Python | Django | FastAPI | REST API | WebSockets | Next.js | OpenAI | Twilio | ElevenLabs | FAISS | RAG |
-          PostgreSQL | Docker | Nginx | Git
+          A privacy-focused online file converter with <b>100+ tools</b> for images, PDFs, documents, audio, video and
+          web pages. No sign-up is needed, and uploaded files are deleted automatically after conversion.
         </p>
+        <span class="stack">Next.js &middot; TypeScript &middot; FastAPI &middot; Celery &middot; Redis &middot; PostgreSQL &middot; FFmpeg &middot; LibreOffice &middot; Docker</span>
+      </div>
+      <div class="block project">
+        <h3><span>CallFlow Agent &ndash; AI Voice &amp; Chat Assistant</span></h3>
         <p>
-          <strong>Link:</strong>
-          <a href="https://agent.thedjflawfirm.com/" target="_blank">agent.thedjflawfirm.com</a>
+          An AI assistant platform for law firms. It answers client questions from the firm's own knowledge base through
+          a website chat widget, places phone calls with a natural human-like voice, runs bulk calling campaigns, and
+          records every call with transcripts and analytics.
         </p>
+        <span class="stack">Django &middot; FastAPI &middot; Next.js &middot; OpenAI &middot; RAG &middot; Twilio &middot; ElevenLabs &middot; FAISS &middot; Docker</span>
+      </div>
+      <div class="block project">
+        <h3><span>anyEsign &ndash; Digital Signing &amp; Payments</span><a class="date" href="https://anyesign.com">anyesign.com</a></h3>
+        <p>
+          A document signing platform where users upload, sign and track documents with legally compliant e-signatures,
+          verification and full audit trails, and collect payments linked to signed documents.
+        </p>
+        <span class="stack">Django &middot; FastAPI &middot; Next.js &middot; Stripe &middot; PostgreSQL &middot; S3 &middot; Docker</span>
+      </div>
+      <div class="block project">
+        <h3><span>PureStora &ndash; E-commerce Store</span><a class="date" href="https://purestora.com">purestora.com</a></h3>
+        <p>
+          An online store with product catalogue, cart, coupons and secure Razorpay checkout, plus an admin panel for
+          orders, inventory, invoices, newsletters and site content.
+        </p>
+        <span class="stack">Django &middot; MySQL &middot; Celery &middot; Redis &middot; Razorpay</span>
       </div>
       <div class="block">
-        <h3>anyEsign – Digital Signing & Payment Platform</h3>
-        <!-- <span>Duration: 10 months</span>
-        <span>Team Size: 7</span> -->
-        <p>
-          <strong>Description:</strong> 
-           Designed and developed a secure document signing and transaction management platform supporting legally compliant 
-           digital signatures, document verification, and audit trails. Implemented role-based workflows for document creators, 
-           signers, and administrators, enabling seamless upload, signing, and tracking of documents. Integrated Stripe for payment 
-           processing tied to document execution and automated notifications. Built scalable REST APIs and modern frontend 
-           interfaces using Next.js, ensuring a smooth and responsive user experience. Deployed on cloud infrastructure with secure 
-           file storage and access controls.
-        </p>
-        <p>
-          <strong>Skills:</strong> 
-          Python | Django | FastAPI | REST API | Next.js | Stripe | Digital Signature | PostgreSQL | Firebase | S3 | HTML/CSS/JavaScript 
-          | Git | GitHub | Docker | CI/CD
-        </p>
-        <p>
-          <strong>Link:</strong> 
-          <a href="https://anyesign.com/" target="_blank">anyesign.com</a>
-        </p>
-      </div>
-      <div class="block">
-        <h3>AndLeap</h3>
-        <!-- <span>Duration: 10 months</span>
-        <span>Team Size: 7</span> -->
-        <p>
-          <strong>Description:</strong> 
-           A sophisticated knowledge-sharing platform built to support teaching, mentoring, and global community engagement.
-           It enables mentors to manage availability, offer bookable one-on-one sessions, and conduct custom Zoom video 
-           calls, while mentees can seamlessly schedule and join sessions across multiple time zones. Secure payments are 
-           integrated with Stripe and processed after successful session delivery. The platform fosters community 
-           interaction through blogs and shared experiences, while slot management dynamically aligns session scheduling 
-           with mentor availability. A role-specific architecture includes a super admin panel for full oversight, a 
-           community admin panel with subscription and engagement tools, a mentor panel for session and content management, 
-           and a mentee panel for personalized access. With its blogging features and global network, the platform 
-           connects users to diverse leaders for impactful mentorship experiences.
-        </p>
-        <p>
-          <strong>Skills:</strong> 
-          Python | Django | REST API | MySQL | Stripe | S3 | HTML/CSS/JavaScript | AJAX | Git | GitLab
-        </p>
-        <p>
-          <strong>Link:</strong> 
-          <a href="https://andleap.com/" target="_blank">andleap.com</a>
-        </p>
-      </div>
-      <div class="block">
-        <h3>PureStora – E-commerce Platform</h3>
-        <!-- <span>Duration: 11 months</span>
-        <span>Team Size: 2</span> -->
-        <p>
-          <strong>Description:</strong> 
-          A comprehensive e-commerce platform designed with scalable architecture and robust security to ensure 
-          a seamless customer and administrative experience. The system includes real-time cart management with AJAX, 
-          a secure multi-step checkout, and Razorpay integration for online payments. It supports multi-level 
-          location handling (country, state, city), customizable coupon management, and role-based authentication 
-          for secure access. Administrative features include configurable email templates, automated PDF invoice 
-          generation, newsletter subscription management, and CMS-based content control. A powerful super admin panel 
-          provides complete oversight with dedicated modules for efficient order tracking, product inventory management, 
-          and streamlined backend operations.
-        </p>
-        <p>
-          <strong>Skills:</strong> 
-          Python | Django | MySQL | Celery | Redis | HTML/CSS/JavaScript | AJAX | Razorpay | Git | GitHub
-        </p>
-        <p>
-          <strong>Link:</strong> 
-          <a href="https://purestora.com/" target="_blank">purestora.com</a>
-        </p>
-      </div>
-      <div class="block">
-        <h3>VPOS – Virtual POS System</h3>
-        <!-- <span>Duration: 10 months</span>
-        <span>Team Size: 4</span> -->
-        <p>
-          <strong>Description:</strong> 
-          Built a POS system with async API handling and real-time
-          communication via sockets. Integrated secure Linkly-based payment
-          APIs into a React frontend. Implemented dynamic, downloadable
-          invoices with search/ﬁlter by user, supporting cash, credit, and debit
-          payments.
-        </p>
-        <p>
-          <strong>Skills:</strong> 
-          Python | FastAPI | Python scripting | React | Nginx | HTML/CSS/JavaScript | REST APIs | pytest | Linkly Payment Gateway | Git | GitHub
-        </p>
-      </div>
-      <div class="block">
-        <h3>Demand Forecasting</h3>
-        <!-- <span>Duration: 5 months</span>
-        <span>Team Size: 2</span> -->
-        <p>
-          <strong>Description:</strong> 
-          Conducted EDA and feature engineering to analyze sales trends, seasonal variations, 
-          and demand fluctuations. Identified key factors influencing sales performance and applied time series analysis, 
-          Decision Tree, Random Forest, ARIMA/SARIMA, and LSTM models to enhance forecasting accuracy. 
-          Optimized ML models through hyperparameter tuning and feature selection, enabling data-driven 
-          decision-making for improved inventory management and business planning.
-        </p>
-        <p>
-          <strong>Skills:</strong> 
-          Python | Pandas | NumPy | Matplotlib | Seaborn | scikit-learn | TensorFlow | Keras | 
-          Machine Learning | Deep Learning | ARIMA/SARIMA | Time Series Forecasting | Sales Forecasting
-        </p>
-      </div>
-
-      <!-- <span>Duration: 4 months</span>
-      <span>Team Size: 2</span> -->
-      <!-- 
-      <div class="block">
-        <h3>Customer Churn Prediction</h3>
-        <p>
-          <strong>Description:</strong> 
-          Built a deep learning model using TensorFlow and Keras
-          to predict customer churn. Conducted EDA and feature engineering to
-          identify key patterns. Used Adam optimizer, binary crossentropy loss,
-          and accuracy metric with hyperparameter tuning to improve retention
-          strategy.
-        
-        </p>
-        <p><strong>Skills:</strong> 
-          Python | Pandas | NumPy | Matplotlib | Seaborn | scikit-learn | TensorFlow | Keras | 
-          Machine Learning | Deep Learning | Prediction 
-        </p>
-      </div>
-      -->
-
-      <div class="block">
-        <h3>Object Detection & Counting System</h3>
-        <!-- <span>Duration: 3 months</span>
-        <span>Team Size: 2</span> -->
-        <p>
-          <strong>Description:</strong> 
-          A computer vision pipeline designed to detect, classify, and count multiple objects in 
-          images using pre-trained deep learning models (YOLOv5). The system automatically records 
-          object counts by category (e.g., person: 3, car: 2), stores metadata such as image 
-          titles, detection details, and timestamps in a relational database, and provides an 
-          analysis dashboard for reviewing images, detected objects, and statistical summaries. 
-          With seamless database integration, the pipeline supports persistent storage, efficient 
-          querying, and reporting for further analysis.
-        
-        </p>
-        <p><strong>Skills:</strong> 
-          Python | Machine Learning | Deep Learning | Django | 
-          MySQL | React | REST API | OpenCV | YOLOv5
-        </p>
+        <h3><span>More Projects</span></h3>
+        <ul>
+          <li><b>AndLeap:</b> a mentorship and community platform where mentees book paid one-on-one video sessions with mentors across time zones.</li>
+          <li><b>VPOS:</b> a virtual point-of-sale system for in-store cash and card payments, with downloadable invoices.</li>
+          <li><b>Demand Forecasting:</b> a machine-learning model that predicts product sales to help plan inventory.</li>
+          <li><b>Object Detection &amp; Counting:</b> a computer-vision tool that detects and counts objects in images, with an analysis dashboard.</li>
+        </ul>
       </div>
     </main>
   </div>
